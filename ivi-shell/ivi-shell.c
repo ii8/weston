@@ -428,6 +428,9 @@ module_init(struct weston_compositor *compositor,
 			     shell, bind_ivi_application) == NULL)
 		goto out_settings;
 
+	if (text_backend_init(ec) < 0)
+		goto out_settings;
+
 	ivi_layout_init_with_compositor(compositor);
 
 	/* Call module_init of ivi-modules which are defined in weston.ini */

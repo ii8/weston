@@ -821,5 +821,8 @@ module_init(struct weston_compositor *compositor,
 			 &_wl_fullscreen_shell_interface, 1, shell,
 			 bind_fullscreen_shell);
 
+	if (text_backend_init(ec) < 0)
+		return -1;
+
 	return 0;
 }
