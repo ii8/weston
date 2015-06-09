@@ -6719,6 +6719,9 @@ module_init(struct weston_compositor *ec,
 			     shell, bind_workspace_manager) == NULL)
 		return -1;
 
+	if (text_backend_init(ec) < 0)
+		return -1;
+
 	shell->child.deathstamp = weston_compositor_get_time();
 
 	shell->panel_position = DESKTOP_SHELL_PANEL_POSITION_TOP;
